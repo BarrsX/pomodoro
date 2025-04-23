@@ -1,0 +1,102 @@
+.timer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 35px; // Slightly increased padding
+  background-color: #f9f9f9; // Lighter background
+  border-radius: 10px; // Softer radius
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12); // Softer shadow
+  max-width: 400px;
+  margin: auto;
+  border: 1px solid #eee; // Subtle border
+}
+
+.timer-display {
+  text-align: center;
+  margin-bottom: 30px; // Increased spacing
+  width: 100%;
+
+  .mode {
+    font-size: 1.1em; // Slightly smaller
+    color: #777; // Lighter color
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px; // More spacing
+  }
+
+  .time {
+    font-size: 5em; // Larger font size
+    font-weight: 700; // Bolder
+    color: #222; // Darker color
+    margin-bottom: 20px;
+    font-family: 'Roboto Mono', 'Courier New', Courier, monospace; // Example alternative font
+  }
+
+  mat-progress-bar {
+    height: 10px; // Thicker progress bar
+    border-radius: 5px;
+  }
+}
+
+.controls {
+  display: flex;
+  justify-content: center; // Keep centered layout for main controls
+  align-items: center; // Align items vertically
+  gap: 20px; // Increased gap
+  margin-bottom: 30px; // Increased spacing
+  width: 100%;
+  position: relative; // For absolute positioning of settings button if needed
+
+  button[mat-fab] {
+    width: 65px; // Slightly larger buttons
+    height: 65px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; // Smooth transition
+
+    mat-icon {
+      font-size: 32px;
+      width: 32px;
+      height: 32px;
+    }
+
+    &:hover:not([disabled]) {
+      transform: translateY(-2px); // Subtle lift on hover
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  // Keep settings button pushed to the right using margin
+  button[mat-icon-button] {
+     margin-left: auto;
+     // Or use absolute positioning relative to .controls if flex layout causes issues
+     // position: absolute;
+     // right: 0;
+     // top: 50%;
+     // transform: translateY(-50%);
+     &:hover {
+        background-color: rgba(0,0,0,0.05); // Subtle hover for icon button
+     }
+  }
+}
+
+.spotify-controls {
+  margin-top: 25px;
+  padding-top: 25px; // Add padding top
+  border-top: 1px solid #eee; // Add separator line
+  text-align: center;
+  width: 100%; // Ensure it takes full width for border
+
+  button {
+     transition: background-color 0.2s ease; // Hover transition
+     &:hover {
+        opacity: 0.9; // Slight fade on hover
+     }
+  }
+}
+
+// Example: Change progress bar color based on mode (requires adding a class in the component)
+// .timer-container.work-mode mat-progress-bar .mat-progress-bar-fill::after {
+//   background-color: var(--mat-primary-color); /* Adjust variable as needed */
+// }
+// .timer-container.break-mode mat-progress-bar .mat-progress-bar-fill::after {
+//   background-color: var(--mat-accent-color); /* Adjust variable as needed */
+// }

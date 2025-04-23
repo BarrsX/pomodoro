@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+/* Add application-wide styles here */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #f5f5f5; /* Light grey background */
+}
+
+.content {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Center content vertically */
+  min-height: calc(100vh - 64px); /* Full height minus toolbar */
+}
+
+/* Center Angular Material components like spinner */
+.mat-mdc-progress-spinner {
+  margin: 20px auto;
+}

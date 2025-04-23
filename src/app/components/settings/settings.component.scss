@@ -1,0 +1,28 @@
+.settings-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* Make form fields take full width */
+  padding: 30px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: auto;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+  }
+
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-between; /* Space out buttons */
+    margin-top: 15px;
+  }
+}

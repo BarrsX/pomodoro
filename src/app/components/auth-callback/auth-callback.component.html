@@ -1,0 +1,14 @@
+<div class="callback-container">
+  <div *ngIf="loading; else callbackContent">
+    <mat-spinner diameter="50"></mat-spinner>
+    <p>Authenticating with Spotify...</p>
+  </div>
+  <ng-template #callbackContent>
+    <div *ngIf="error" class="error-message">
+      <h2>Authentication Failed</h2>
+      <p>{{ error }}</p>
+      <button mat-raised-button color="warn" routerLink="/">Go Back</button>
+    </div>
+    <!-- Success case is handled by redirecting in the component's logic -->
+  </ng-template>
+</div>

@@ -1,59 +1,77 @@
-# PomodoroSpotify
+# Pomodoro Spotify Angular App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.9.
+This is a Pomodoro timer application built with Angular that integrates with Spotify to play/pause music during work/break sessions.
 
-## Development server
+## Features
 
-To start a local development server, run:
+- Customizable Pomodoro timer (work/break durations).
+- Spotify integration using the Web Playback SDK.
+- Authentication via Spotify OAuth 2.0 (PKCE flow).
+- Automatic playback control (play during work, pause during break).
+- Basic UI using Angular Material.
 
-```bash
-ng serve
-```
+## Prerequisites
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- Node.js and npm (Check Angular compatibility, e.g., v18, v20, v22+)
+- Angular CLI (`npm install -g @angular/cli`)
+- A Spotify Premium account (required for the Web Playback SDK).
 
-## Code scaffolding
+## Setup
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+1.  **Clone the repository (if applicable) or ensure you are in the project directory.**
 
-```bash
-ng generate component component-name
-```
+2.  **Install Dependencies:**
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+    ```bash
+    npm install
+    ```
 
-```bash
-ng generate --help
-```
+3.  **Create a Spotify Application:**
 
-## Building
+    - Go to the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard/).
+    - Log in with your Spotify account.
+    - Click "Create App".
+    - Give your app a name (e.g., "Angular Pomodoro") and description.
+    - Agree to the terms.
+    - Once created, you will see your **Client ID**. Copy this value.
+    - Click "Edit Settings".
+    - In the "Redirect URIs" section, add the following URI:
+      ```
+      http://localhost:4200/auth-callback
+      ```
+    - Click "Add", then scroll down and click "Save".
 
-To build the project run:
+4.  **Configure Spotify Client ID:**
+    - Open the file `src/app/services/spotify.service.ts`.
+    - Find the line:
+      ```typescript
+      private clientId = 'YOUR_SPOTIFY_CLIENT_ID';
+      ```
+    - Replace `'YOUR_SPOTIFY_CLIENT_ID'` with the actual Client ID you copied from the Spotify Developer Dashboard.
 
-```bash
-ng build
-```
+## Running the Application
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+1.  **Start the development server:**
 
-## Running unit tests
+    ```bash
+    ng serve -o
+    ```
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+    or use the npm script:
 
-```bash
-ng test
-```
+    ```bash
+    npm start
+    ```
 
-## Running end-to-end tests
+    This will build the application and open it in your default browser at `http://localhost:4200/`.
 
-For end-to-end (e2e) testing, run:
+2.  **Usage:**
+    - Click "Login with Spotify" to authenticate.
+    - Use the timer controls (play, pause, reset).
+    - Go to "Settings" (gear icon) to adjust work and break durations.
+    - Music should automatically play during work sessions and pause during breaks if you are logged into Spotify.
 
-```bash
-ng e2e
-```
+## Development
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- **Build:** `ng build` (for production build)
+- **Test:** `ng test` (to run unit tests)

@@ -1,0 +1,46 @@
+<div class="timer-container">
+  <div class="timer-display">
+    <div class="mode">{{ isWorkMode ? "Work" : "Break" }}</div>
+    <div class="time">{{ formatTime(timeLeft) }}</div>
+    <mat-progress-bar mode="determinate" [value]="progress"></mat-progress-bar>
+  </div>
+
+  <div class="controls">
+    <button
+      mat-fab
+      color="primary"
+      (click)="startTimer()"
+      [disabled]="timerRunning"
+    >
+      <mat-icon>play_arrow</mat-icon>
+    </button>
+    <button
+      mat-fab
+      color="warn"
+      (click)="pauseTimer()"
+      [disabled]="!timerRunning"
+    >
+      <mat-icon>pause</mat-icon>
+    </button>
+    <button mat-fab (click)="resetTimer()">
+      <mat-icon>refresh</mat-icon>
+    </button>
+    <button mat-icon-button routerLink="/settings" aria-label="Settings">
+      <mat-icon>settings</mat-icon>
+    </button>
+  </div>
+
+  <div class="spotify-controls">
+    <ng-container *ngIf="isLoggedIn; else loggedOut">
+      <button mat-raised-button color="accent" (click)="logout()">
+        Logout Spotify
+      </button>
+      <!-- Add more Spotify controls here if needed (e.g., skip track) -->
+    </ng-container>
+    <ng-template #loggedOut>
+      <button mat-raised-button color="primary" (click)="login()">
+        Login with Spotify
+      </button>
+    </ng-template>
+  </div>
+</div>

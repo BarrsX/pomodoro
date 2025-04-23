@@ -1,0 +1,21 @@
+<div class="settings-container">
+  <h2>Settings</h2>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Work Duration (minutes)</mat-label>
+    <input matInput type="number" [(ngModel)]="workDuration" min="1" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Break Duration (minutes)</mat-label>
+    <input matInput type="number" [(ngModel)]="breakDuration" min="1" />
+  </mat-form-field>
+
+  <div class="actions">
+    <button mat-raised-button color="primary" (click)="saveSettings()">
+      Save Settings
+    </button>
+    <button mat-stroked-button routerLink="/">Back to Timer</button>
+    <!-- Add back button -->
+  </div>
+</div>
