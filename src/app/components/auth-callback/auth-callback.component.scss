@@ -3,25 +3,30 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 40px;
+  padding: 2rem;
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  max-width: 400px;
+  margin: 40px auto;
   text-align: center;
-  min-height: 200px; // Ensure some minimum height
+
+  mat-spinner {
+    margin: 20px auto;
+  }
 
   p {
-    margin-top: 15px;
-    font-size: 1.1em;
-    color: #555;
+    margin: 1rem 0;
+    color: #e0e0e0;
   }
 
   .error-message {
-    color: #d32f2f; // Material Design error color
-
     h2 {
-      margin-bottom: 10px;
+      color: #cf6679; /* Error color for dark theme */
     }
 
-    button {
-      margin-top: 20px;
+    p {
+      margin-bottom: 1.5rem;
     }
   }
 }

@@ -3,7 +3,8 @@ html, body {
   height: 100%;
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: #f5f5f5; /* Light grey background */
+  background-color: #121212; /* Dark background */
+  color: #e0e0e0; /* Light text color for better contrast */
 }
 
 .content {
@@ -18,4 +19,44 @@ html, body {
 /* Center Angular Material components like spinner */
 .mat-mdc-progress-spinner {
   margin: 20px auto;
+}
+
+/* Dark theme for form fields */
+.mat-mdc-form-field {
+  color: #e0e0e0;
+}
+
+/* Dark theme for buttons */
+.mat-mdc-raised-button.mat-primary {
+  background-color: #7b1fa2; /* Dark purple primary */
+}
+
+.mat-mdc-raised-button.mat-accent {
+  background-color: #69f0ae; /* Accent green */
+  color: #000;
+}
+
+// Add styles for the snackbar error class
+.error-snackbar {
+  background-color: #cf6679; /* Error color for dark theme */
+  color: #000;
+  
+  .mat-simple-snackbar-action {
+    color: #000;
+  }
+}
+
+/* Dark theme for cards and surfaces */
+.mat-card, .settings-container, .timer-container {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
+/* Dark theme specific timer styles */
+.work-mode {
+  background-color: #311b92; /* Dark purple for work mode */
+}
+
+.break-mode {
+  background-color: #004d40; /* Dark teal for break mode */
 }

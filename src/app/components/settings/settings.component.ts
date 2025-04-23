@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms'; // Import FormsModule
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBarModule, MatSnackBar } from '@angular/material/snack-bar';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router'; // Import RouterLink
 
@@ -15,6 +16,7 @@ import { RouterLink } from '@angular/router'; // Import RouterLink
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatSnackBarModule,
     RouterLink, // Add RouterLink
   ],
   templateUrl: './settings.component.html',
@@ -23,6 +25,8 @@ import { RouterLink } from '@angular/router'; // Import RouterLink
 export class SettingsComponent implements OnInit {
   workDuration: number = 25; // Default work duration in minutes
   breakDuration: number = 5; // Default break duration in minutes
+
+  constructor(private snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
     this.loadSettings();
@@ -51,10 +55,23 @@ export class SettingsComponent implements OnInit {
         'pomodoroBreakDuration',
         this.breakDuration.toString()
       );
-      // Optionally, show a success message to the user
-      alert('Settings saved!'); // Simple alert for now
+      // Show a toast notification instead of an alert
+      this.snackBar.open('Settings saved!', 'Close', {
+        duration: 3000, // Duration in milliseconds
+        horizontalPosition: 'center',
+        verticalPosition: 'bottom',
+      });
     } else {
-      alert('Please enter valid durations (greater than 0).');
+      this.snackBar.open(
+        'Please enter valid durations (greater than 0).',
+        'Close',
+        {
+          duration: 5000,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+          panelClass: ['error-snackbar'], // Add this class for styling if needed
+        }
+      );
     }
   }
 }
