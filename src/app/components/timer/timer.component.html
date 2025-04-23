@@ -1,4 +1,7 @@
-<div class="timer-container">
+<div
+  class="timer-container"
+  [ngClass]="isWorkMode ? 'work-mode' : 'break-mode'"
+>
   <div class="timer-display">
     <div class="mode">{{ isWorkMode ? "Work" : "Break" }}</div>
     <div class="time">{{ formatTime(timeLeft) }}</div>
